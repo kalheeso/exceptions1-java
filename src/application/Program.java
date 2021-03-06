@@ -36,11 +36,16 @@ public class Program {
 			System.out.print("Update check-out: ");
 			checkOut = sdf.parse(sc.next());
 			
-			reservation.updateDates(checkOut, checkIn);
-			System.out.println("Updated data: " + reservation);
+			String error = reservation.updateDates(checkOut, checkIn);
+			
+			if (error != null) {
+				System.out.println("Error in reservation: " + error);
+			}
+			else {
+				System.out.println("Reservation: " + reservation);
+			}
 		}
-		
-		
+		sc.close();
 	}
 
 }
